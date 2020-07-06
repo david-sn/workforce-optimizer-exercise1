@@ -6,6 +6,7 @@
 package com.workforce.demo.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -53,6 +54,10 @@ public class Shift implements Serializable {
         this.id = id;
     }
 
+    public Shift(String code) {
+        this.code = code;
+    }
+
     public Integer getId() {
         return id;
     }
@@ -70,6 +75,9 @@ public class Shift implements Serializable {
     }
 
     public Set<ShiftGroup> getShiftGroupSet() {
+        if (this.shiftGroupSet == null) {
+            shiftGroupSet = new HashSet<>();
+        }
         return shiftGroupSet;
     }
 
@@ -101,5 +109,5 @@ public class Shift implements Serializable {
     public String toString() {
         return "com.workforce.demo.model.Shift[ id=" + id + " ]";
     }
-    
+
 }

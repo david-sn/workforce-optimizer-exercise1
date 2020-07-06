@@ -6,10 +6,13 @@
 package com.workforce.demo.model;
 
 import java.io.Serializable;
+import java.util.HashSet;
 import java.util.Set;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
@@ -30,6 +33,7 @@ public class ShiftGroup implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Basic(optional = false)
     @NotNull
     @Column(name = "id")
@@ -45,6 +49,10 @@ public class ShiftGroup implements Serializable {
 
     public ShiftGroup(Integer id) {
         this.id = id;
+    }
+
+    public ShiftGroup(String code) {
+        this.code = code;
     }
 
     public Integer getId() {
@@ -64,6 +72,9 @@ public class ShiftGroup implements Serializable {
     }
 
     public Set<Shift> getShiftSet() {
+        if (this.shiftSet == null) {
+            shiftSet = new HashSet<>();
+        }
         return shiftSet;
     }
 
@@ -95,5 +106,5 @@ public class ShiftGroup implements Serializable {
     public String toString() {
         return "com.workforce.demo.model.ShiftGroup[ id=" + id + " ]";
     }
-    
+
 }
