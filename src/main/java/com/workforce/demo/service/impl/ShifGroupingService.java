@@ -24,7 +24,9 @@ public class ShifGroupingService {
     @PostConstruct
     private void loadData() {
         if (loadSeedData) {
-
+            shiftRepository.deleteAll();
+            shiftGroupRepository.deleteAll();
+            
             Shift shift1 = new Shift("shift_code_1");
             Shift savedShift1 = shiftRepository.save(shift1);
 
