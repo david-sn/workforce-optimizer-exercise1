@@ -1,9 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package com.workforce.demo.model;
+
+package com.workforce.app.model;
 
 import java.io.Serializable;
 import java.util.HashSet;
@@ -14,12 +10,11 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 /**
@@ -27,34 +22,32 @@ import javax.validation.constraints.Size;
  * @author david
  */
 @Entity
-@Table(name = "shift")
+@Table(name = "shift_group")
 @NamedQueries({
-    @NamedQuery(name = "Shift.findAll", query = "SELECT s FROM Shift s")})
-public class Shift implements Serializable {
+    @NamedQuery(name = "ShiftGroup.findAll", query = "SELECT s FROM ShiftGroup s")})
+public class ShiftGroup implements Serializable {
 
     private static final long serialVersionUID = 1L;
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     @Basic(optional = false)
-    @Column(name = "Id")
+    @NotNull
+    @Column(name = "id")
     private Integer id;
     @Size(max = 100)
     @Column(name = "code")
     private String code;
-    @JoinTable(name = "shift_grouping", joinColumns = {
-        @JoinColumn(name = "shift_code_id", referencedColumnName = "Id")}, inverseJoinColumns = {
-        @JoinColumn(name = "shift_group_id", referencedColumnName = "id")})
-    @ManyToMany
-    private Set<ShiftGroup> shiftGroupSet;
+    @ManyToMany(mappedBy = "shiftGroupSet")
+    private Set<Shift> shiftSet;
 
-    public Shift() {
+    public ShiftGroup() {
     }
 
-    public Shift(Integer id) {
+    public ShiftGroup(Integer id) {
         this.id = id;
     }
 
-    public Shift(String code) {
+    public ShiftGroup(String code) {
         this.code = code;
     }
 
@@ -74,15 +67,15 @@ public class Shift implements Serializable {
         this.code = code;
     }
 
-    public Set<ShiftGroup> getShiftGroupSet() {
-        if (this.shiftGroupSet == null) {
-            shiftGroupSet = new HashSet<>();
+    public Set<Shift> getShiftSet() {
+        if (this.shiftSet == null) {
+            shiftSet = new HashSet<>();
         }
-        return shiftGroupSet;
+        return shiftSet;
     }
 
-    public void setShiftGroupSet(Set<ShiftGroup> shiftGroupSet) {
-        this.shiftGroupSet = shiftGroupSet;
+    public void setShiftSet(Set<Shift> shiftSet) {
+        this.shiftSet = shiftSet;
     }
 
     @Override
@@ -95,10 +88,10 @@ public class Shift implements Serializable {
     @Override
     public boolean equals(Object object) {
         // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Shift)) {
+        if (!(object instanceof ShiftGroup)) {
             return false;
         }
-        Shift other = (Shift) object;
+        ShiftGroup other = (ShiftGroup) object;
         if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
             return false;
         }
@@ -107,7 +100,7 @@ public class Shift implements Serializable {
 
     @Override
     public String toString() {
-        return "com.workforce.demo.model.Shift[ id=" + id + " ]";
+        return "com.workforce.demo.model.ShiftGroup[ id=" + id + " ]";
     }
 
 }

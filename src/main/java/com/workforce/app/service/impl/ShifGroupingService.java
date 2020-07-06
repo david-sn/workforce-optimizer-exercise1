@@ -1,15 +1,18 @@
-package com.workforce.demo.service.impl;
+package com.workforce.app.service.impl;
 
-import com.workforce.demo.model.Shift;
-import com.workforce.demo.model.ShiftGroup;
-import com.workforce.demo.repository.ShiftGroupRepository;
-import com.workforce.demo.repository.ShiftRepository;
+import com.workforce.app.model.Shift;
+import com.workforce.app.model.ShiftGroup;
+import com.workforce.app.repository.ShiftGroupRepository;
+import com.workforce.app.repository.ShiftRepository;
 import java.util.Optional;
 import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
+/**
+ *
+ * @author david
+ */
 @Service
 public class ShifGroupingService {
 

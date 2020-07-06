@@ -1,4 +1,4 @@
-package com.workforce.demo.body;
+package com.workforce.app.body;
 
 /**
  *

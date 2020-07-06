@@ -1,10 +1,13 @@
-package com.workforce.demo.repository;
+package com.workforce.app.repository;
 
-import com.workforce.demo.model.Shift;
+import com.workforce.app.model.Shift;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
+/**
+ *
+ * @author david
+ */
 @Repository
 public interface ShiftRepository extends JpaRepository<Shift, Integer> {
 

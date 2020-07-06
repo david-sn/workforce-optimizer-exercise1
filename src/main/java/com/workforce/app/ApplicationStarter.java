@@ -1,13 +1,13 @@
-package com.workforce.demo;
+package com.workforce.app;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DemoApplication {
+public class ApplicationStarter {
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(ApplicationStarter.class, args);
     }
 
 }

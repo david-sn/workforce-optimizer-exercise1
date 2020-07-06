@@ -1,9 +1,9 @@
-package com.workforce.demo.controller;
+package com.workforce.app.controller;
 
-import com.workforce.demo.body.IsBelongToGroupRequestBody;
-import com.workforce.demo.service.impl.ShifGroupingService;
-import com.workforce.demo.body.IsBelongedResponse;
-import com.workforce.demo.template.ResponseTemplate;
+import com.workforce.app.body.IsBelongToGroupRequestBody;
+import com.workforce.app.service.impl.ShifGroupingService;
+import com.workforce.app.body.IsBelongedResponse;
+import com.workforce.app.template.ResponseTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
