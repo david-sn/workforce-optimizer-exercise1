@@ -48,14 +48,15 @@ id|code         |
 
 Shift_grouping Table
 shift_code_id|shift_group_id|
- ------------|--------------|
-            1|            10|
-            1|            20|
-            2|            10|
+-------------|--------------|
+           1|            10|
+           1|            20|
+           2|            10|
 
 Use Api to test codes.
 
 ProjectDir
+```
 ├───src/
 │   ├───main/
 │   │   ├───java/
@@ -97,3 +98,4 @@ ProjectDir
 ├───docker-compose.yml───────────────────────────────────────────────>> docker images (database and api)
 ├───pom.xml──────────────────────────────────────────────────────────>> application dependency 
 └───workforce-optimizer.postman_collection.json──────────────────────>> postman collection API
+```
