@@ -47,11 +47,12 @@ id|code         |
 10|shift_group_1|
 
 Shift_grouping Table
-shift_code_id|shift_group_id|
--------------|--------------|
-            1|            10|
-            1|            20|
-            2|            10|
+shift_code_id|shift_group_id         |
+--|-------------|
+1|10|
+1|20|
+2|10|
+
 
 Use Api to test codes.
 
