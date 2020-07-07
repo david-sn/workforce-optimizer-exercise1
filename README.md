@@ -49,9 +49,9 @@ id|code         |
 Shift_grouping Table
 shift_code_id|shift_group_id|
 -------------|--------------|
-           1|            10|
-           1|            20|
-           2|            10|
+           18|            10|
+           18|            11|
+           19|            10|
 
 Use Api to test codes.
 
