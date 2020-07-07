@@ -2,10 +2,12 @@ version: '3.4'
 
 services:
   demo:
-    image: demo
+    image: workforce-opt
     build: .
     ports:
       - 8080:8080
+    depends_on: 
+      - db
    # Database Service (Mysql)
   db:
     image: mysql:5.7
